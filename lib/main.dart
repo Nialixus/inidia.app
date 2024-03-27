@@ -5,7 +5,7 @@ void main() {
   runApp(
     const MaterialApp(
       title: 'Inidia App',
-      home: WhackAMoleHomeScreen(),
+      home: WhackAMole(),
     ),
   );
 }
