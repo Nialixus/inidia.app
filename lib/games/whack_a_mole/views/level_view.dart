@@ -13,14 +13,17 @@ class _LevelViewState extends State<LevelView> {
   @override
   void initState() {
     super.initState();
+    bool isDialogOpened = false;
     controller
       ..start()
-      ..addListener(() {
-        if (controller.isGameOver) {
-          showDialog(
+      ..addListener(() async {
+        if (controller.isGameOver && !isDialogOpened) {
+          isDialogOpened = true;
+          await showDialog(
             context: context,
             builder: (_) => GameoverView(controller: controller),
           );
+          isDialogOpened = false;
         }
       });
   }
@@ -32,7 +35,7 @@ class _LevelViewState extends State<LevelView> {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'assets/games/whack_a_mole/background.png',
+              'assets/games/whack_a_mole/bg.png',
               fit: BoxFit.cover,
             ),
           ),
@@ -47,7 +50,8 @@ class _LevelViewState extends State<LevelView> {
                       flex: 1,
                       child: Center(
                         child: Text(
-                          countdown(controller.countdown),
+                          '${controller.countdown}'
+                              .replaceAll(RegExp(r'^\d+:|(?=\.).*'), ''),
                           style: const TextStyle(
                             fontFamily: 'WhackAMole',
                             fontSize: 40.0,
@@ -60,13 +64,16 @@ class _LevelViewState extends State<LevelView> {
                       flex: 4,
                       child: LayoutBuilder(
                         builder: (context, constraints) {
-                          final size = constraints.biggest / 3;
+                          final rows = sqrt(controller.moles.length).ceil();
+                          final size = constraints.biggest / rows.toDouble();
                           return Wrap(
+                            alignment: WrapAlignment.center,
                             children: [
-                              for (int mole = 0; mole < 9; mole++)
+                              for (var mole in controller.moles)
                                 MoleView(
+                                  mole,
                                   size: size,
-                                  onTap: controller.stop,
+                                  onTap: () => controller.onTap(mole),
                                 )
                             ],
                           );
