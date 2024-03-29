@@ -40,31 +40,16 @@ class MoleView extends StatelessWidget {
             if (data.isTapped)
               Positioned.fill(
                 child: TweenAnimationBuilder(
-                  tween: Tween(begin: 0.0, end: 1.0),
-                  duration: const Duration(milliseconds: 100),
-                  builder: (_, value, child) {
-                    return Transform.scale(
-                      scale: value,
-                      child: child,
-                    );
-                  },
-                  child: Builder(builder: (context) {
-                    switch (data.type) {
-                      case MoleType.bomber:
-                        return Image.asset(
-                          'assets/games/whack_a_mole/fx_bad.png',
-                        );
-                      case MoleType.normal:
-                        return Image.asset(
-                          'assets/games/whack_a_mole/fx_good.png',
-                        );
-                      default:
-                        return Image.asset(
-                          'assets/games/whack_a_mole/fx_miss.png',
-                        );
-                    }
-                  }),
-                ),
+                    tween: Tween(begin: 0.0, end: 1.0),
+                    duration: const Duration(milliseconds: 100),
+                    builder: (_, value, child) {
+                      return Transform.scale(
+                        scale: value,
+                        child: child,
+                      );
+                    },
+                    child: Image.asset(
+                        'assets/games/whack_a_mole/fx_${data.type.name}.png')),
               )
           ],
         ),

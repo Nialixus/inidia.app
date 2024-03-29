@@ -1,11 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:inidia/games/whack_a_mole/main.dart';
+import 'package:inidia/games/whack_a_mole/main.dart' as whack_a_mole;
 
-void main() {
-  runApp(
-    const MaterialApp(
-      title: 'Inidia App',
-      home: WhackAMole(),
-    ),
-  );
-}
+void main() => whack_a_mole.main();

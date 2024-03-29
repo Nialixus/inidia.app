@@ -1,29 +1,38 @@
 part of '../main.dart';
 
 class LevelView extends StatefulWidget {
-  const LevelView({super.key});
+  const LevelView({
+    super.key,
+    this.duration = const Duration(minutes: 1),
+    this.moles = 15,
+  });
+  final Duration duration;
+  final int moles;
 
   @override
   State<LevelView> createState() => _LevelViewState();
 }
 
 class _LevelViewState extends State<LevelView> {
-  final LevelController controller = LevelController();
+  late final LevelController controller = LevelController(
+    initialDuration: widget.duration,
+    totalMoles: widget.moles,
+  );
 
   @override
   void initState() {
     super.initState();
-    bool isDialogOpened = false;
+    bool isDialogShown = false;
     controller
       ..start()
       ..addListener(() async {
-        if (controller.isGameOver && !isDialogOpened) {
-          isDialogOpened = true;
+        if (controller.isGameOver && !isDialogShown) {
+          isDialogShown = true;
           await showDialog(
             context: context,
             builder: (_) => GameoverView(controller: controller),
           );
-          isDialogOpened = false;
+          isDialogShown = false;
         }
       });
   }
