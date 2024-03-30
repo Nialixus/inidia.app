@@ -29,6 +29,7 @@ class _LevelViewState extends State<LevelView> {
         if (controller.isGameOver && !isDialogShown) {
           isDialogShown = true;
           await showDialog(
+            barrierDismissible: false,
             context: context,
             builder: (_) => GameoverView(controller: controller),
           );

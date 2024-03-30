@@ -3,17 +3,24 @@ part of '../main.dart';
 class LevelController extends ChangeNotifier {
   LevelController({
     Duration initialDuration = const Duration(minutes: 1),
-    int totalMoles = 15,
-  })  : _initialDuration = initialDuration,
+    int totalMoles = 9,
+  })  : _duration = initialDuration,
         _length = totalMoles;
 
-  final Duration _initialDuration;
+  final Duration _duration;
   final int _length;
 
-  late Duration countdown = _initialDuration;
+  late Duration countdown = _duration;
   late List<MoleModel> moles = [
     for (int i = 0; i < _length; i++) MoleModel(index: i)
   ];
+
+  DateTime? _startedAt;
+  DateTime? _stoppedAt;
+  Duration? get result {
+    if (_startedAt == null || _stoppedAt == null) return null;
+    return _stoppedAt!.difference(_startedAt!);
+  }
 
   bool get isGameOver {
     final result = countdown.inSeconds <= 0;
@@ -24,16 +31,9 @@ class LevelController extends ChangeNotifier {
     return result;
   }
 
-  DateTime? _startedAt;
-  DateTime? _stoppedAt;
-  Duration? get result {
-    if (_startedAt == null || _stoppedAt == null) return null;
-    return _stoppedAt!.difference(_startedAt!);
-  }
-
   Future<void> start({bool isFirstTime = true}) async {
     if (isFirstTime) {
-      countdown = _initialDuration;
+      countdown = _duration;
       _startedAt = DateTime.now();
     }
     if (!isGameOver) {
