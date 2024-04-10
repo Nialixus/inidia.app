@@ -1,16 +1,20 @@
-# inidia
+<p align="center">
+    <img src="https://github.com/Nialixus/inidia.app/assets/45191605/3e0d3875-ae48-49b9-822e-fc3a91e02aa3" alt="icn_logo">
+</p>
 
-A new Flutter project.
+# 🚀 Inidia.app
+Welcome to the Inidia repository! This repository serves as a hub for various packages and game tutorials developed by me.
 
-## Getting Started
+## 🚧 Project Structure
+| Packages | Games |
+| -------- | ----- |
+|          | [Whack A Mole](https://github.com/Nialixus/inidia.app/tree/main/lib/games/whack_a_mole) |
 
-This project is a starting point for a Flutter application.
+## 💪 Usage
+Feel free to explore the tutorials and resources provided in this repository to learn how to build exciting Flutter games. Follow the instructions in each module to set up your development environment and start coding!
 
-A few resources to get you started if this is your first Flutter project:
+## 🎉 Contributions
+Contributions are welcome! If you have any ideas for new tutorials, improvements to existing ones, or want to contribute to the project in any way, feel free to open an issue or submit a pull request.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
