@@ -3,4 +3,4 @@ ios/** linguist-vendored
 web/** linguist-vendored
 macos/** linguist-vendored
 windows/** linguist-vendored
-linux/*" linguist-vendored
+linux/** linguist-vendored
