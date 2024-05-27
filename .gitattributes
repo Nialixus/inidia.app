@@ -1,6 +1,6 @@
-android/* linguist-vendored
-ios/* linguist-vendored
-web/* linguist-vendored
-macos/* linguist-vendored
-windows/* linguist-vendored
-linux/* linguist-vendored
+android/** linguist-vendored
+ios/** linguist-vendored
+web/** linguist-vendored
+macos/** linguist-vendored
+windows/** linguist-vendored
+linux/*" linguist-vendored
