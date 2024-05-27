@@ -1,6 +1,21 @@
+# Vendoring entire directories
 android/** linguist-vendored
 ios/** linguist-vendored
 web/** linguist-vendored
 macos/** linguist-vendored
 windows/** linguist-vendored
 linux/** linguist-vendored
+
+# Vendoring specific file types
+**/*.cpp linguist-vendored
+**/*.cxx linguist-vendored
+**/*.cc linguist-vendored
+**/*.c++ linguist-vendored
+**/*.c linguist-vendored
+**/*.h linguist-vendored
+**/*.hpp linguist-vendored
+**/*.hxx linguist-vendored
+**/*.hh linguist-vendored
+**/*.h++ linguist-vendored
+**/*.cmake linguist-vendored
+**/CMakeLists.txt linguist-vendored
